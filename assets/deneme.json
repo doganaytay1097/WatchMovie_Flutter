@@ -1,0 +1,50 @@
+{
+  "animation": {
+    "name": "simple_animation",
+    "frames": [
+      {
+        "id": 1,
+        "elements": [
+          {
+            "type": "rectangle",
+            "x": 10,
+            "y": 10,
+            "width": 100,
+            "height": 50,
+            "color": "#FF0000"
+          },
+          {
+            "type": "circle",
+            "cx": 150,
+            "cy": 75,
+            "radius": 50,
+            "color": "#00FF00"
+          }
+        ],
+        "duration": 1000
+      },
+      {
+        "id": 2,
+        "elements": [
+          {
+            "type": "rectangle",
+            "x": 20,
+            "y": 20,
+            "width": 100,
+            "height": 50,
+            "color": "#0000FF"
+          },
+          {
+            "type": "circle",
+            "cx": 160,
+            "cy": 85,
+            "radius": 50,
+            "color": "#FFFF00"
+          }
+        ],
+        "duration": 1000
+      }
+    ],
+    "loop": true
+  }
+}
