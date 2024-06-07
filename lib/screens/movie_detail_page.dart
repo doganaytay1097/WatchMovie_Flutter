@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:watch_list/models/item.dart';
-import 'package:watch_list/providers/items_data.dart';
 import 'package:watch_list/services/movie_services.dart';
 
 class MovieDetailPage extends StatefulWidget {

@@ -6,6 +6,13 @@ class ColorThemeData with ChangeNotifier {
   static late SharedPreferences _sharedPreferences;
   bool isGreen = true;
 
+  List<Color> gradientColors = [
+    Color(0xffFF204E),
+    Color(0xffA0153E),
+    Color(0xff5D0E41),
+    Color(0xff00224D),
+  ];
+
   final ThemeData blueAccentTheme = _buildThemeData(Color(0xff121212));
   final ThemeData amberAccentTheme = _buildThemeData(Color(0xff00BFFF));
 

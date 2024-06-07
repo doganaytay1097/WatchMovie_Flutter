@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
-import 'package:watch_list/models/gradient_image.dart';
+import 'package:watch_list/models/gradient_text.dart';
 import 'package:watch_list/models/item.dart';
+import 'package:watch_list/providers/color_theme_data.dart';
 import 'package:watch_list/widgets/item_search.dart';
 import 'package:watch_list/providers/items_data.dart';
 import 'package:watch_list/screens/category_manager.dart';
@@ -10,6 +10,8 @@ import 'package:watch_list/screens/misson_adder.dart';
 import 'package:watch_list/widgets/item_card.dart';
 
 class MainPage extends StatefulWidget {
+  const MainPage({super.key});
+
   @override
   State<MainPage> createState() => _MainPageState();
 }
@@ -24,6 +26,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     final itemData = Provider.of<ItemData>(context);
+    final colorThemeData  = Provider.of<ColorThemeData>(context);
 
     List<Item> itemsToShow;
     if (selectedCategory != null) {
@@ -45,17 +48,13 @@ class _MainPageState extends State<MainPage> {
     });
 
     return Scaffold(
-      backgroundColor: Color((0xff121212)),
+      backgroundColor: const Color((0xff121212)),
       appBar: AppBar(
         elevation: 10.0,
         centerTitle: true,
         title: Padding(
-          padding: const EdgeInsets.only(top: 12.0),
-          child: const Text(
-            'Watch List',
-            style: TextStyle(
-                color: Colors.red, fontWeight: FontWeight.bold, fontSize: 25),
-          ),
+          padding:  const EdgeInsets.only(top: 12.0),
+          child: GradientText(textPath: 'Watch List'),
         ),
         actions: [
           IconButton(
@@ -81,8 +80,8 @@ class _MainPageState extends State<MainPage> {
       ),
       body: Column(
         children: [
-           // Image.asset('assets/image1.png',height: 170,),
-           GradientImage(imagePath: 'assets/image2.png',),
+           Image.asset('assets/image1.png',height: 140,),
+           //GradientImage(imagePath: 'assets/image2.png',),
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: Row(
@@ -134,18 +133,13 @@ class _MainPageState extends State<MainPage> {
             child: Padding(
               padding: const EdgeInsets.all(14.0),
               child: Container(
-                decoration: const BoxDecoration(
+                decoration:  BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [
-                      Color(0xffFF204E),
-                      Color(0xffA0153E),
-                      Color(0xff5D0E41),
-                      Color(0xff00224D),
-                    ],
+                    colors: colorThemeData.gradientColors,
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  borderRadius: const BorderRadius.all(Radius.circular(20)),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
@@ -171,7 +165,7 @@ class _MainPageState extends State<MainPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: EdgeInsets.only(bottom: 20),
+            padding: const EdgeInsets.only(bottom: 20),
             child: FloatingActionButton(
               onPressed: () {
                 showModalBottomSheet(
